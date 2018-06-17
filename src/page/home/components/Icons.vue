@@ -92,6 +92,7 @@ export default {
 #icons {
   height: 0;
   padding-bottom: 50%; // 使用 margin/padding 的百分比值来解决自适应高度
+  margin-top: .2rem;
   overflow: hidden;
   .icon {
     position: relative;
