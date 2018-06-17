@@ -43,7 +43,7 @@ export default {
   height: 3rem;
   overflow: hidden;
   background: #eee;
-  // padding-bottom: 31.25%;
+  // padding-bottom: 50%;
   .top-swiper {
     height: 3rem;
     .item-swiper {
