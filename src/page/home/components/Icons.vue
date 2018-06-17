@@ -2,7 +2,7 @@
   <div id="icons">
     <swiper>
       <swiper-slide v-for="(page, index) of pages" :key="index">
-        <div class="icon" v-for="(item, index) of page" :key="index">
+        <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
             <img :src="item.imgUrl" />
           </div>
@@ -16,55 +16,11 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconData: Array
+  },
   data() {
     return {
-      iconList: [
-        {
-          id: '001',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点景点景点景点'
-        }, {
-          id: '002',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/17/99402a22ce4af302.png',
-          desc: '西湖'
-        },
-        {
-          id: '001',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点'
-        }, {
-          id: '002',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/17/99402a22ce4af302.png',
-          desc: '西湖'
-        },
-        {
-          id: '001',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点'
-        }, {
-          id: '002',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/17/99402a22ce4af302.png',
-          desc: '西湖'
-        },
-        {
-          id: '001',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点'
-        }, {
-          id: '002',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/17/99402a22ce4af302.png',
-          desc: '西湖'
-        },
-        {
-          id: '001',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点'
-        }, {
-          id: '002',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/17/99402a22ce4af302.png',
-          desc: '西湖'
-        }
-      ]
     };
   },
   computed: {
@@ -72,7 +28,7 @@ export default {
     pages() {
       let pages = new Array();
       // 数组每个元素都执行一次回调函数 | 无返回值
-      this.iconList.forEach((item, index) => {
+      this.iconData.forEach((item, index) => {
         // 返回小于或等于一个给定数字的最大整数
         let page = Math.floor(index / 8);
         if (!pages[page]) {

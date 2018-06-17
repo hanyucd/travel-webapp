@@ -2,7 +2,7 @@
   <div id="weekend">
     <div class="weekend-title">周末去哪儿</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of weekendData" :key="item.id">
         <div class="item-img-wrapper">
           <img class="item-img" :src="item.imgUrl" />
         </div>
@@ -17,29 +17,12 @@
 
 <script>
 export default {
-  name: 'HomeRecommend',
+  name: 'HomeWeekend',
+  props: {
+    weekendData: Array
+  },
   data() {
     return {
-      recommendList: [
-        {
-          id: '001',
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1505/4e/3e87ee62e59cdb.jpg_r_640x214_fe6cc902.jpg',
-          title: '杭州西湖',
-          desc: '中国第一湖'
-        },
-        {
-          id: '001',
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1505/4e/3e87ee62e59cdb.jpg_r_640x214_fe6cc902.jpg',
-          title: '杭州西湖',
-          desc: '中国第一湖'
-        },
-        {
-          id: '001',
-          imgUrl: 'http://img1.qunarzz.com/sight/source/1505/4e/3e87ee62e59cdb.jpg_r_640x214_fe6cc902.jpg',
-          title: '杭州西湖',
-          desc: '中国第一湖'
-        }
-      ]
     };
   }
 };
@@ -58,7 +41,7 @@ export default {
   .item-img-wrapper {
     overflow: hidden;
     height: 0;
-    padding-bottom: 33.9%;
+    padding-bottom: 37.09%;
     .item-img {
       width: 100%;
     }

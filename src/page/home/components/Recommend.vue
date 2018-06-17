@@ -2,7 +2,7 @@
   <div id="recommend">
     <div class="recommend-title">热门推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of recommendData" :key="item.id">
         <img class="item-img" :src="item.imgUrl" />
         <div class="item-info">
           <p class="item-title">{{ item.title }}</p>
@@ -17,28 +17,11 @@
 <script>
 export default {
   name: 'HomeRecommend',
+  props: {
+    recommendData: Array
+  },
   data() {
     return {
-      recommendList: [
-        {
-          id: '001',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/201401/06/3fbbddda915cb7637439d484440d36be.jpg_200x200_a54e87dd.jpg',
-          title: '杭州西湖',
-          desc: '中国第一湖'
-        },
-        {
-          id: '001',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/201401/06/3fbbddda915cb7637439d484440d36be.jpg_200x200_a54e87dd.jpg',
-          title: '杭州西湖',
-          desc: '中国第一湖'
-        },
-        {
-          id: '001',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/201401/06/3fbbddda915cb7637439d484440d36be.jpg_200x200_a54e87dd.jpg',
-          title: '杭州西湖',
-          desc: '中国第一湖'
-        }
-      ]
     };
   }
 };
@@ -80,7 +63,7 @@ export default {
       .item-button {
         line-height: .44rem;
         margin-top: .16rem;
-        background: #ff9300;
+        background: #A31FFF;
         padding: 0 .2rem;
         border-radius: .06rem;
         color: #fff;
