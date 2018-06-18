@@ -1,0 +1,10 @@
+export default {
+  CHANGECITY(state, city) {
+    state.city = city;
+    try {
+      localStorage.city = city;
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+};
