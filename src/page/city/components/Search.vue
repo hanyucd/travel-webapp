@@ -3,9 +3,9 @@
     <div id="search">
       <input type="text" v-model="keyword" placeholder="输入城市名或拼音" maxlength="10" />
     </div>
-    <div class="search-result" ref="search" v-if="keyword">
+    <div class="search-result" ref="searchContent" v-show="keyword">
       <ul>
-        <li class="search-item border-bottom" v-for="item of list" :key="item.id">{{ item.name }}</li>
+        <li class="search-item border-bottom" v-for="item of list" :key="item.id" @click="handleCityClick(item.name)">{{ item.name }}</li>
         <li class="search-item" v-show="!list.length">没有找到匹配项</li>
       </ul>
     </div>
@@ -14,6 +14,7 @@
 
 <script>
 import BScroll from 'better-scroll';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'CitySearch',
@@ -49,8 +50,19 @@ export default {
       }, 100);
     }
   },
+  methods: {
+    handleCityClick(city) {
+      // this.$store.dispatch('emitChangeCity', city);
+      this.emitChangeCity(city);
+      this.keyword = '';
+      this.$router.push({ path: '/' });
+    },
+    ...mapActions([
+      'emitChangeCity'
+    ])
+  },
   mounted() {
-    this.scroll = new BScroll(this.$refs.search);
+    this.scroll = new BScroll(this.$refs.searchContent);
   }
 };
 </script>
