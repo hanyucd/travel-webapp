@@ -1,41 +1,53 @@
 <template>
-  <div id="list">
-    <!-- 当前城市 -->
-    <div class="area">
-      <div class="title border-topbottom">当前城市</div>
-      <div class="button-list">
-        <div class="button-wrapper" v-for="n in 10">
-          <div class="button">北京</div>
+  <div id="list" ref="cityListWrapper">
+    <!-- 分块标签 -->
+    <section class="city-content">
+      <!-- 当前城市 -->
+      <div class="area">
+        <div class="title border-topbottom">当前城市</div>
+        <div class="button-list">
+          <div class="button-wrapper">
+            <div class="button">北京</div>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- 热门城市 -->
-    <div class="area">
-      <div class="title border-topbottom">热门城市</div>
-      <div class="button-list">
-        <div class="button-wrapper" v-for="n in 8">
-          <div class="button">北京</div>
+      <!-- 热门城市 -->
+      <div class="area">
+        <div class="title border-topbottom">热门城市</div>
+        <div class="button-list">
+          <div class="button-wrapper" v-for="item of hotCityData" :key="item.id">
+            <div class="button">{{ item.name }}</div>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- 城市排序 -->
-    <div class="area" v-for="n in 10">
-      <div class="title border-topbottom">A</div>
-      <div class="item-list">
-        <div class="item border-bottom" v-for="n in 10">
-          杭州
+      <!-- 城市排序 -->
+      <div class="area" v-for="(city, key) of citiesData" :key="key">
+        <div class="title border-topbottom">{{ key }}</div>
+        <div class="item-list">
+          <div class="item border-bottom" v-for="item of city" :key="item.id">
+            {{ item.name }}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll';
+
 export default {
   name: 'CityList',
+  props: {
+    citiesData: Object,
+    hotCityData: Array
+  },
   data() {
     return {
     };
+  },
+  mounted() {
+    this.scroll = new BScroll(this.$refs.cityListWrapper);
   }
 };
 </script>
@@ -51,7 +63,7 @@ export default {
   bottom: 0;
   .area {
     .title {
-      line-height: .44rem;
+      line-height: .54rem;
       background: #eee;
       padding-left: .2rem;
       color: #666;
