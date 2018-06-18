@@ -1,11 +1,13 @@
 <template>
   <div id="city">
     <CityHeader></CityHeader>
+    <CitySearch></CitySearch>
   </div>
 </template>
 
 <script>
 import CityHeader from './components/Header';
+import CitySearch from './components/Search';
 
 export default {
   name: 'City',
@@ -15,7 +17,8 @@ export default {
     };
   },
   components: {
-    CityHeader
+    CityHeader,
+    CitySearch
   }
 };
 </script>
