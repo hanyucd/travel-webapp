@@ -2,8 +2,8 @@
   <div id="city">
     <CityHeader></CityHeader>
     <CitySearch></CitySearch>
-    <CityList :citiesData="cities" :hotCityData="hotCity"></CityList>
-    <CityAlphabet :cities="cities"></CityAlphabet>
+    <CityList :citiesData="cities" :hotCityData="hotCity" :letter="letter"></CityList>
+    <CityAlphabet :cities="cities" v-on:change="handleLetterChange"></CityAlphabet>
   </div>
 </template>
 
@@ -19,7 +19,8 @@ export default {
   data() {
     return {
       cities: {},
-      hotCity: []
+      hotCity: [],
+      letter: ''
     };
   },
   created() {
@@ -36,6 +37,9 @@ export default {
         this.cities = cityData.data.cities;
         this.hotCity = cityData.data.hotCities;
       }
+    },
+    handleLetterChange(letter) {
+      this.letter = letter;
     }
   },
   components: {
