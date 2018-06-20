@@ -26,7 +26,7 @@ export default {
           }]
         },
         { title: '学生人' },
-        { title: '儿童人' },
+        { title: '儿童人' }
       ]
     };
   },
