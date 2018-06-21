@@ -7,6 +7,10 @@ import Detail from '@/page/detail/Detail';
 Vue.use(Router);
 
 export default new Router({
+  // 滚动行为：路由跳转回顶部
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  },
   routes: [
     {
       path: '/',
