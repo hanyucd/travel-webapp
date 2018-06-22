@@ -1,8 +1,14 @@
-# travel-webapp
+## 旅游 WebApp
 
-> A Vue.js project
+一个移动端旅游网页（Vue 全家桶）
 
-## Build Setup
+## 应用相关技术
+- Vue
+- Vue-Router
+- Vuex
+- Scss
+
+## 安装依赖 & 运行
 
 ``` bash
 # install dependencies
@@ -17,5 +23,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
