@@ -1,8 +1,9 @@
-## 旅游 WebApp
+# 旅游 WebApp
 
 一个移动端旅游网页（Vue 全家桶）
 
 ## 应用相关技术
+
 - Vue
 - Vue-Router
 - Vuex
